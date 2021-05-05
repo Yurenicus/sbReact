@@ -1,0 +1,22 @@
+{
+  "name": "sbreact",
+  "version": "1.0.0",
+  "description": "sbReact learning",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yurenicus/sbReact.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Yurenicus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yurenicus/sbReact/issues"
+  },
+  "homepage": "https://github.com/Yurenicus/sbReact#readme"
+}
