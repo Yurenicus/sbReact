@@ -1,22 +1,37 @@
 {
-  "name": "sbreact",
-  "version": "1.0.0",
-  "description": "sbReact learning",
-  "main": "App.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Yurenicus/sbReact.git"
-  },
-  "keywords": [
-    "react"
-  ],
-  "author": "Yurenicus",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Yurenicus/sbReact/issues"
-  },
-  "homepage": "https://github.com/Yurenicus/sbReact#readme"
+    "name": "sbreact",
+    "version": "1.0.0",
+    "description": "sbReact learning",
+    "private": true,
+    "scripts": {
+        "build:dev": "env NODE_ENV=development webpack --config webpack.config.js",
+        "build:prod": "env NODE_ENV=production webpack --config webpack.config.js",
+        "dev": "env NODE_ENV=development webpack serve",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Yurenicus/sbReact.git"
+    },
+    "keywords": [
+        "react"
+    ],
+    "author": "Yurenicus",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Yurenicus/sbReact/issues"
+    },
+    "homepage": "https://github.com/Yurenicus/sbReact#readme",
+    "devDependencies": {
+        "html-webpack-plugin": "^5.3.1",
+        "ts-loader": "^9.1.2",
+        "typescript": "^4.2.4",
+        "webpack": "^5.36.2",
+        "webpack-cli": "^4.6.0",
+        "webpack-dev-server": "^3.11.2"
+    },
+    "dependencies": {
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    }
 }
