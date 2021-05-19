@@ -9,19 +9,37 @@ module.exports = {
     entry: path.resolve(__dirname, '../src/server/server.js'),
     output: {
         path: path.resolve(__dirname, '../dist/server'),
-        filename: 'server.js'
+        filename: 'server.js',
     },
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
     },
     externals: [nodeExternals()],
     module: {
-        rules: [{
-            test: /\.[jt]sx?$/,
-            use: [
-                { loader: 'ts-loader', options: { transpileOnly: true } }
-            ],
-        }]
+        rules: [
+            {
+                test: /\.[jt]sx?$/,
+                use: [
+                    { loader: 'ts-loader', options: { transpileOnly: true } }
+                ],
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                mode: 'local',
+                                localIdentName: '[name]__[local]--[hash:base64:5]'    
+                            },
+                            onlyLocals: true
+                        }
+                    },
+                    'sass-loader'
+                ]
+            }
+        ]
     },
     optimization: {
         minimize: false

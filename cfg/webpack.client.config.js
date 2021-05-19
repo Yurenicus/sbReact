@@ -29,12 +29,35 @@ module.exports = {
         }
     },
     module: {
-        rules: [{
-            test: /\.[jt]sx?$/,
-            use: [
-                { loader: 'ts-loader', options: { transpileOnly: true } }
-            ],
-        }]
+        rules: [
+            {
+                test: /\.[jt]sx?$/,
+                use: [
+                    { loader: 'ts-loader', options: { transpileOnly: true } }
+                ],
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    { 
+                        loader: 'style-loader', 
+                        options: { 
+                            injectType: 'singletonStyleTag' 
+                        } 
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                mode: 'local',
+                                localIdentName: '[name]__[local]--[hash:base64:5]'    
+                            }
+                        }
+                    },
+                    'sass-loader'
+                ]
+            }
+        ]
     },
     stats: 'normal',
     devtool: setupDevtool(),
