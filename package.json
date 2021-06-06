@@ -48,6 +48,7 @@
         "express": "^4.17.1",
         "nodemon": "^2.0.2",
         "react": "^16.13.0",
-        "react-dom": "^16.13.0"
+        "react-dom": "^16.13.0",
+        "unique-names-generator": "^4.2.0"
     }
 }
