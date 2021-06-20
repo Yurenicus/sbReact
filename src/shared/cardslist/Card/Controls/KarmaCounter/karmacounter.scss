@@ -1,0 +1,33 @@
+.karmaCounter > * + * {
+    padding: 0 0 0 4px;
+}
+.karmaValue {
+    color: $greyC4;
+}
+svg.down {
+    transform: rotate(180deg);
+}
+@media all and (min-width: 1024px) {
+    .karmaValue {
+        font-size: 14px;
+        line-height: 16px;
+        color: $black;
+    }
+    .karmaCounter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column nowrap;
+    }
+    .karmaCounter > * + * {
+        padding: 7px 0 0;
+    }
+}
+@media all and (min-width: 1540px) {
+    .karmaCounter > button.up:hover > svg > path {
+        fill: $green;
+    }
+    .karmaCounter > button.down:hover > svg > path {
+        fill: $orange;
+    }
+}
