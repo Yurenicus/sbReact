@@ -5,6 +5,8 @@ import { Layout } from './shared/Layout';
 import { Header } from './shared/Header';
 import { Content } from './shared/Content';
 import { CardsList } from './shared/CardsList';
+import { EColor, Text } from './shared/Text';
+import { EIcons, Icon } from './shared/Icon';
 // import { assignId, generateId, generateRandomString } from './utils/react/generateRandomIndex';
 // import { merge } from './utils/js/merge';
 // import { GenericList } from './shared/GenericList';
@@ -27,6 +29,11 @@ function AppComponent() {
                         <CardsList />
                     </Dropdown>
                 </div> */}
+                {/* <br />
+                <Text size={20}>ololol</Text>
+                <Text As={'h1'} size={28} color={EColor.orange}>trololo</Text>
+                <Text size={20} color={EColor.green}>whoopwhoopwhoop</Text>
+                <Icon name={EIcons.block} size={28} /> */}
             </Content>
         </Layout>
     );
