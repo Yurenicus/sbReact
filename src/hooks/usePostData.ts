@@ -16,19 +16,15 @@ export function usePostData() {
     const token = React.useContext(tokenContext);
 
     React.useEffect(() => {
-        const interval = setInterval(() => {
-            axios.get('https://oauth.reddit.com/best', {
-            headers: { Authorization: `bearer ${token}`}
-            })
-            .then((resp) => {
-                const postData = resp.data.data ? resp.data.data.children.map((obj: IPostObj) => obj.data) : [];
-                setData({ postArray: postData ? postData : [] });
-            })
-            .catch(console.log);
-        }, 1000);
-        
-        return () => clearInterval(interval);
-    });
+        axios.get('https://oauth.reddit.com/best', {
+        headers: { Authorization: `bearer ${token}`}
+        })
+        .then((resp) => {
+            const postData = resp.data.data ? resp.data.data.children.map((obj: IPostObj) => obj.data) : [];
+            setData({ postArray: postData ? postData : [] });
+        })
+        .catch(console.log);
+    }, []);
 
     return [data];
 }

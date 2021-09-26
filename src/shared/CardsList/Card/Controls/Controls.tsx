@@ -7,7 +7,7 @@ import { KarmaCounter } from './KarmaCounter';
 export function Controls() {
     return (
         <div className={styles.controls}>
-            <KarmaCounter />
+            <KarmaCounter count={234} />
             <CommentsButton />
             <Actions />
         </div>

@@ -10,23 +10,30 @@ import { tokenContext } from './shared/context/tokenContext';
 import { UserContextProvider } from './shared/context/userContext';
 import { PostContextProvider } from './shared/context/postContext';
 import { BestPosts } from './shared/BestPosts';
+import { commentContext } from './shared/context/commentContext';
 
 function AppComponent() {
     const [token] = useToken();
+    const [commentValue, setCommentValue] = React.useState('');
 
     return (
         <tokenContext.Provider value={token}>
-            <UserContextProvider>
-                <Layout>
-                    <Header />
-                    <Content>
-                        <PostContextProvider>
-                            <CardsList />
-                            <BestPosts />
-                        </PostContextProvider>
-                    </Content>
-                </Layout>
-            </UserContextProvider>
+            <commentContext.Provider value={{
+                value: commentValue,
+                onChange: setCommentValue
+            }}>
+                <UserContextProvider>
+                    <Layout>
+                        <Header />
+                        <Content>
+                            <PostContextProvider>
+                                <CardsList />
+                                <BestPosts />
+                            </PostContextProvider>
+                        </Content>
+                    </Layout>
+                </UserContextProvider>
+            </commentContext.Provider>
         </tokenContext.Provider>
     );
 }

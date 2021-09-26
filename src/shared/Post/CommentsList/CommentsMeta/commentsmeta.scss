@@ -1,0 +1,71 @@
+.metaData {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    font-size: 10px;
+    line-height: 12px;
+    margin-bottom: 11px;
+}
+
+.userLink {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    height: 20px;
+    padding: 0 6px 0 0;
+}
+
+.avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 0 7px 0 0;
+}
+
+.username {
+    color: $orange;
+}
+
+.createdAt, .createdAt * {
+    color: $grey99;
+}
+.publishedLabel {
+    display: none;
+}
+.leagueLabel {
+    height: 22px;
+    padding: 0 10px;
+    background: $greyD9;
+    line-height: 22px;
+    font-size: 14px;
+    color: $black;
+    margin-left: 6px;
+}
+@media all and (min-width: 1024px) {
+    .metaData {
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .publishedLabel {
+        display: inline;
+        color: $grey99;
+    }
+}
+
+@media all and (min-width: 1540px) {
+    .userLink:hover a {
+        text-decoration: underline;
+    }
+    .postLink::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+    }
+    .username {
+        position: relative;
+        z-index: 1;
+    }
+}

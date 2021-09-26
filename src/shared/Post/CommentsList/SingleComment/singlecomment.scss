@@ -1,0 +1,23 @@
+.comment {
+    display: flex;
+    margin-top: 37px;
+}
+.aside {
+    width: 19px;
+    margin-right: 21px;
+    position: relative;
+}
+.aside::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 3px;
+    height: calc(100% - 50px);
+    top: 50px;
+    left: calc(50% - 1px);
+    transform: translateX(-50%);
+    background-color: $greyD9;
+}
+.content > span {
+    line-height: 22px;
+}

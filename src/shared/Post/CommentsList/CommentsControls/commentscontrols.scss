@@ -1,0 +1,23 @@
+.controls {
+    display: flex;
+    flex-direction: column;
+    margin-top: 13px;
+}
+.buttons {
+    display: flex;
+}
+.comment {
+    margin-top: 20px;
+}
+.button {
+    display: flex;
+    align-items: center;
+}
+.button:not(:last-child) {
+    margin-right: 27px;
+}
+.button > span:last-child {
+    color: $grey99;
+    font-size: 14px;
+    margin-left: 6px;
+}
