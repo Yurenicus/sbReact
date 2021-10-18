@@ -2,7 +2,7 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { Controls } from '../CardsList/Card/Controls';
 import { MetaData } from '../CardsList/Card/TextContent/MetaData';
-import { CommentForm } from '../CommentForm';
+import { CommentFormContainer } from '../CommentFormContainer';
 import { CommentsList } from './CommentsList';
 import styles from './post.scss';
 
@@ -47,7 +47,7 @@ export function Post(props: IPost) {
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perspiciatis repellendus aliquid accusantium porro sequi mollitia ipsum adipisci facere, natus magni veniam nobis, nisi architecto dolor dolorem excepturi ullam animi!</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perspiciatis repellendus aliquid accusantium porro sequi mollitia ipsum adipisci facere, natus magni veniam nobis, nisi architecto dolor dolorem excepturi ullam animi!</p>
       </div>
-      <CommentForm />
+      <CommentFormContainer />
       <CommentsList />
     </div>
     ), node);

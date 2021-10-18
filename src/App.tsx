@@ -5,8 +5,6 @@ import { Layout } from './shared/Layout';
 import { Header } from './shared/Header';
 import { Content } from './shared/Content';
 import { CardsList } from './shared/CardsList';
-import { useToken } from './hooks/useToken';
-import { tokenContext } from './shared/context/tokenContext';
 import { UserContextProvider } from './shared/context/userContext';
 import { PostContextProvider } from './shared/context/postContext';
 import { BestPosts } from './shared/BestPosts';
@@ -19,25 +17,19 @@ import { rootReducer } from './store';
 const store = createStore(rootReducer, composeWithDevTools())
 
 function AppComponent() {
-    const [token] = useToken();
-
-    const TokenProvider = tokenContext.Provider;
-
     return (
         <Provider store={store}>
-            <TokenProvider value={token}>
-                <UserContextProvider>
-                    <Layout>
-                        <Header />
-                        <Content>
-                            <PostContextProvider>
-                                <CardsList />
-                                <BestPosts />
-                            </PostContextProvider>
-                        </Content>
-                    </Layout>
-                </UserContextProvider>
-            </TokenProvider>
+            <UserContextProvider>
+                <Layout>
+                    <Header />
+                    <Content>
+                        <PostContextProvider>
+                            <CardsList />
+                            <BestPosts />
+                        </PostContextProvider>
+                    </Content>
+                </Layout>
+            </UserContextProvider>
         </Provider>
     );
 }

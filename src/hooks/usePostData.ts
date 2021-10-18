@@ -1,6 +1,6 @@
 import * as React from 'react';
 import axios from 'axios';
-import { tokenContext } from '../shared/context/tokenContext';
+import { useToken } from './useToken';
 
 interface IPostData {
     postArray?: [];
@@ -13,7 +13,7 @@ interface IPostObj {
 
 export function usePostData() {
     const [data, setData] = React.useState<IPostData>({});
-    const token = React.useContext(tokenContext);
+    const [token] = useToken();
 
     React.useEffect(() => {
         axios.get('https://oauth.reddit.com/best', {
