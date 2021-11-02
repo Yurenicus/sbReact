@@ -1,6 +1,7 @@
 import * as React from 'react';
 import axios from 'axios';
-import { useToken } from './useToken';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/reducer';
 
 interface IPostData {
     postArray?: [];
@@ -13,7 +14,7 @@ interface IPostObj {
 
 export function usePostData() {
     const [data, setData] = React.useState<IPostData>({});
-    const [token] = useToken();
+    const token = useSelector<RootState>(state => state.token);
 
     React.useEffect(() => {
         axios.get('https://oauth.reddit.com/best', {
