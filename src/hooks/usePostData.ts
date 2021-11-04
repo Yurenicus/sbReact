@@ -17,6 +17,7 @@ export function usePostData() {
     const token = useSelector<RootState>(state => state.token);
 
     React.useEffect(() => {
+        if (!token) return;
         axios.get('https://oauth.reddit.com/best', {
         headers: { Authorization: `bearer ${token}`}
         })
