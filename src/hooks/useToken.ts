@@ -1,18 +1,17 @@
-// import * as React from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { RootState, setToken } from '../store/reducer';
+import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../store/reducer';
+import { saveToken } from '../store/token/actions';
 
-// export function useToken() {
-//     // const [token, setToken] = React.useState('');
-//     const token = useSelector<RootState, string>(state => state.token);
-//     const dispatch = useDispatch();
+export function useToken() {
+    const token = useSelector<RootState, string>(state => state.app.token);
+    const dispatch = useDispatch();
     
-//     React.useEffect(() => {
-//         if (window.__token__) {
-//             // setToken(window.__token__);
-//             dispatch(setToken(token));
-//         }
-//     }, []);
+    React.useEffect(() => {
+        if (window.__token__) {
+            // dispatch(saveToken());
+        }
+    }, []);
 
-//     return [token];
-// }
+    return [token];
+}

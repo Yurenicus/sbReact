@@ -1,12 +1,14 @@
+import { useDispatch } from "react-redux";
 import { ActionCreator, Reducer } from "redux";
 import { MeRequestAction, MeRequestErrorAction, MeRequestSuccessAction, ME_REQUEST, ME_REQUEST_ERROR, ME_REQUEST_SUCCESS } from "./me/actions";
 import { meReducer, MeState } from "./me/reducer";
+import { saveToken, SetTokenAction, SET_TOKEN } from "./token/actions";
 // import { SetTokenAction, SET_TOKEN } from "./token/actions";
 import { tokenReducer, TokenState } from "./token/reducer";
 
 export type RootState = {
     commentText: string;
-    token: string;
+    app: TokenState;
     me: MeState;
 };
 
@@ -20,19 +22,11 @@ export const updateComment: ActionCreator<UpdateCommentAction> = (text: string) 
     text
 });
 
-export const SET_TOKEN = 'SET_TOKEN';
-export type SetTokenAction = {
-    type: typeof SET_TOKEN;
-    token: string;
-}
-export const setToken: ActionCreator<SetTokenAction> = (token: string) => ({
-    type: SET_TOKEN,
-    token
-});
-
 const initialState: RootState = {
     commentText: 'Тестовый текст',
-    token: '',
+    app: {
+        token: ''
+    },
     me: {
         loading: false,
         error: '',
@@ -56,8 +50,7 @@ export const rootReducer: Reducer<RootState, MyAction> = (state = initialState, 
         case SET_TOKEN:
             return {
                 ...state,
-                // token: tokenReducer(state.token, action)
-                token: action.token
+                app: tokenReducer(state.app, action)
             }
         case ME_REQUEST:
         case ME_REQUEST_SUCCESS:
