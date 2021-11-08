@@ -9,7 +9,7 @@ import { BestPosts } from './shared/BestPosts';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { rootReducer } from './store/reducer';
+import { rootReducer, setToken } from './store/reducer';
 import thunk from 'redux-thunk';
 // import { setToken } from './store/token/actions';
 
@@ -19,8 +19,11 @@ const store = createStore(rootReducer, composeWithDevTools(
 
 function AppComponent() {
     React.useEffect(() => {
-        // const token = localStorage.getItem('token') || window.__token__;
-        // store.dispatch(setToken(token));
+        const token = localStorage.getItem('token') || window.__token__;
+        store.dispatch(setToken(token));
+        if (token) {
+            localStorage.setItem('token', token);
+        }
     }, []);
 
     return (

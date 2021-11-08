@@ -18,7 +18,7 @@ export const saveToken = (): ThunkAction<
   unknown,
   Action<string>
 > => (dispatch, getState) => {
-  let token = getState().app.token;
+  let token = getState().token;
   let localToken: string | undefined | null = localStorage.getItem(
     "token"
   );

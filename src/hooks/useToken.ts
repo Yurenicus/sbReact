@@ -4,7 +4,7 @@ import { RootState } from '../store/reducer';
 import { saveToken } from '../store/token/actions';
 
 export function useToken() {
-    const token = useSelector<RootState, string>(state => state.app.token);
+    const token = useSelector<RootState, string>(state => state.token);
     const dispatch = useDispatch();
     
     React.useEffect(() => {

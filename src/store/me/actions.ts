@@ -38,7 +38,7 @@ export const meRequestError: ActionCreator<MeRequestErrorAction> = (error: strin
 export const meRequestAsync = (): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch, getState) => {
     dispatch(meRequest());
     axios.get('https://oauth.reddit.com/api/v1/me', {
-        headers: { Authorization: `bearer ${getState().app.token}`}
+        headers: { Authorization: `bearer ${getState().token}`}
     })
     .then((resp) => {
         const userData = resp.data;
