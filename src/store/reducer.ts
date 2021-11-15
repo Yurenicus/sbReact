@@ -1,14 +1,12 @@
-import { useDispatch } from "react-redux";
 import { ActionCreator, Reducer } from "redux";
 import { MeRequestAction, MeRequestErrorAction, MeRequestSuccessAction, ME_REQUEST, ME_REQUEST_ERROR, ME_REQUEST_SUCCESS } from "./me/actions";
 import { meReducer, MeState } from "./me/reducer";
-import { saveToken, SetTokenAction, SET_TOKEN } from "./token/actions";
-// import { SetTokenAction, SET_TOKEN } from "./token/actions";
+import { SetTokenAction, SET_TOKEN } from "./token/actions";
 import { tokenReducer, TokenState } from "./token/reducer";
 
 export type RootState = {
     commentText: string;
-    app: TokenState;
+    app: TokenState
     me: MeState;
 };
 
