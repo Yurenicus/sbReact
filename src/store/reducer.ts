@@ -2,11 +2,11 @@ import { ActionCreator, Reducer } from "redux";
 import { MeRequestAction, MeRequestErrorAction, MeRequestSuccessAction, ME_REQUEST, ME_REQUEST_ERROR, ME_REQUEST_SUCCESS } from "./me/actions";
 import { meReducer, MeState } from "./me/reducer";
 import { SetTokenAction, SET_TOKEN } from "./token/actions";
-import { tokenReducer, TokenState } from "./token/reducer";
+import { tokenReducer } from "./token/reducer";
 
 export type RootState = {
     commentText: string;
-    app: TokenState
+    token: string
     me: MeState;
 };
 
@@ -22,9 +22,7 @@ export const updateComment: ActionCreator<UpdateCommentAction> = (text: string) 
 
 const initialState: RootState = {
     commentText: 'Тестовый текст',
-    app: {
-        token: ''
-    },
+    token: '',
     me: {
         loading: false,
         error: '',
@@ -48,7 +46,7 @@ export const rootReducer: Reducer<RootState, MyAction> = (state = initialState, 
         case SET_TOKEN:
             return {
                 ...state,
-                app: tokenReducer(state.app, action)
+                token: tokenReducer(state.token, action)
             }
         case ME_REQUEST:
         case ME_REQUEST_SUCCESS:

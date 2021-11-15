@@ -14,7 +14,7 @@ interface IPostObj {
 
 export function usePostData() {
     const [data, setData] = React.useState<IPostData>({});
-    const token = useSelector<RootState>(state => state.app.token);
+    const token = useSelector<RootState>(state => state.token);
 
     React.useEffect(() => {
         if (!token) return;

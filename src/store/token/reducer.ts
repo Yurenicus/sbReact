@@ -3,17 +3,11 @@ import { SetTokenAction, SET_TOKEN } from "./actions";
 
 export type SetTokenActions = SetTokenAction;
 
-export type TokenState = {
-    token: string
-}
-
-export const tokenReducer: Reducer<TokenState, SetTokenActions> = (state, action) => {
+export const tokenReducer: Reducer<string, SetTokenActions> = (state, action) => {
     switch (action.type) {
         case SET_TOKEN:
-            return {
-                ...state,
-                token: action.token
-            }
+            return action.token
+            
         default:
             return state;
     }
