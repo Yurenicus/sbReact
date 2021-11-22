@@ -18,7 +18,6 @@ const store = createStore(rootReducer, composeWithDevTools(
 ));
 
 function AppComponent() {
-    store.dispatch(saveToken());
 
     return (
         <Provider store={store}>

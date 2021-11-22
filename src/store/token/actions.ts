@@ -14,13 +14,16 @@ export const setToken: ActionCreator<SetTokenAction> = (token: string) => ({
 });
 
 export const saveToken = (): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch) => {
-  useEffect(() => {
-    const url = window.location.hash;
-    if(url.indexOf('access_token') !== -1) {
-      const access_token = url.split('=')[1].split('&')[0];
-      dispatch(setToken(access_token));
-    }
-  }, []);
+  if (window.__token__) {
+    dispatch(setToken(window.__token__));
+  }
+  // useEffect(() => {
+  //   const url = window.location.hash;
+  //   if(url.indexOf('access_token') !== -1) {
+  //     const access_token = url.split('=')[1].split('&')[0];
+  //     dispatch(setToken(access_token));
+  //   }
+  // }, []);
 };
 
 // export const saveToken = (): ThunkAction<
