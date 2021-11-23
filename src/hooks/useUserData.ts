@@ -10,7 +10,7 @@ export function useUserData() {
     const dispatch = useDispatch();
 
     React.useEffect(() => {
-        if (!token) return;
+        if (token !== undefined) return;
         dispatch(meRequestAsync());
     }, [token]);
 
